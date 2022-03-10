@@ -2,25 +2,21 @@
   "name": "cmybeer-app",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.0"
-  },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
+    "commit": "git-cz",
+    "format": "prettier --write **/*.{css,html,js,jsx,json,md}",
+    "prepare": "husky install",
+    "start": "react-scripts start",
     "test": "react-scripts test"
   },
-  "eslintConfig": {
+  "commitlint": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "@commitlint/config-conventional"
     ]
+  },
+  "lint-staged": {
+    "*.{css,html,js,jsx,json,md}": "prettier --write"
   },
   "browserslist": {
     "production": [
@@ -33,5 +29,29 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "git-cz": "^4.8.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.5",
+    "prettier": "^2.5.1",
+    "prettier-plugin-packagejson": "^2.2.16"
   }
 }
