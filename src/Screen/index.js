@@ -1,14 +1,12 @@
 import { bool, node, string } from "prop-types";
-import clsx from "clsx";
 
-import "./styles.css";
-import { Title, Subtitle } from "./styles";
+import { Typography } from "@mui/material";
 
 export default function Screen({ title, navigation, isHome = false }) {
   return (
     <>
-      <Title>CMyBeer</Title>
-      <Subtitle isHome={isHome}>{title}</Subtitle>
+      <Typography variant="h1">CMyBeer</Typography>
+      <Typography variant="h2">{title}</Typography>
       <nav>{navigation}</nav>
     </>
   );
