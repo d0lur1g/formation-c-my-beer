@@ -1,4 +1,5 @@
 import Header from "../Header";
+import { node } from "prop-types";
 
 export default function Screen({ children }) {
   return (
@@ -10,5 +11,5 @@ export default function Screen({ children }) {
 }
 
 Screen.propTypes = {
-  children: Node,
+  children: node,
 };
