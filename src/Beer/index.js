@@ -1,4 +1,4 @@
-import { number } from "prop-types";
+import { number, shape, string } from "prop-types";
 
 import {
   Card,
@@ -23,25 +23,22 @@ const useQuantity = () => {
   return [quantity, handleChange];
 };
 
-export default function Beer({ id, maxQuantity = 5 }) {
+export default function Beer({ beer, maxQuantity = 5 }) {
   const [quantity, setQuantity] = useQuantity();
 
   const items = new Array(maxQuantity).fill(null);
+
+  const { name, description, imageUri } = beer;
+
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image="https://brewerydb-images.s3.amazonaws.com/beer/Ez5Orj/upload_4tqdxd-contentAwareLarge.png"
-        alt="green iguana"
-      />
+      <CardMedia component="img" height="140" image={imageUri} alt={name} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -68,6 +65,12 @@ export default function Beer({ id, maxQuantity = 5 }) {
 }
 
 Beer.propTypes = {
-  id: number.isRequired,
+  beer: shape({
+    id: string,
+    name: string,
+    description: string,
+    imageUri: string,
+    price: string,
+  }),
   maxQuantity: number,
 };
