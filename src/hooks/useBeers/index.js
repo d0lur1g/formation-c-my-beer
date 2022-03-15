@@ -1,17 +1,9 @@
-import React from "react";
+import { useQuery } from "react-query";
 
-const responseToJson = (response) => response.json();
+import cMyBeersFetch from "../../cMyBeersFetch";
 
-export default function useBeers(defaultBeers = []) {
-  const [beers, setBeers] = React.useState(defaultBeers);
+export default function useBeers() {
+  const { isLoading, error, data } = useQuery("beers", cMyBeersFetch("/beers"));
 
-  React.useEffect(() => {
-    fetch(
-      "https://my-json-server.typicode.com/d0lur1g/formation-c-my-beer/beers"
-    )
-      .then(responseToJson)
-      .then((beers) => setBeers(beers));
-  }, [setBeers]);
-
-  return [beers];
+  return { isLoading, error, beers: data };
 }
