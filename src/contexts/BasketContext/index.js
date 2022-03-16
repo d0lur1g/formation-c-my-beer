@@ -1,7 +1,7 @@
 import { node } from "prop-types";
 import React from "react";
 
-import { useBeers } from "../../hooks";
+import { useBeers, useBasket } from "../../hooks";
 
 const BasketContext = React.createContext();
 
@@ -11,11 +11,7 @@ const sumPrice = (subTotal, { quantity, price }) => subTotal + quantity * price;
 const sumQuantity = (subTotal, { quantity }) => subTotal + quantity;
 
 const Provider = ({ children }) => {
-  const [basket] = React.useReducer(() => {}, {
-    rs8GCw: 4,
-    erWFyB: 6,
-    Rc4cSx: 3,
-  });
+  const { basket, addToBasket } = useBasket();
   const { isLoading, beers } = useBeers();
 
   const basketItems = isLoading
@@ -32,6 +28,7 @@ const Provider = ({ children }) => {
     totalPrice,
     basketItems,
     basketItemsCount,
+    addToBasket,
   };
 
   return (

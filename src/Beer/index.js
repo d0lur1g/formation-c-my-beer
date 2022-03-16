@@ -14,13 +14,15 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useSelect } from "../hooks";
+import { BasketContext } from "../contexts";
 
 export default function Beer({ beer, maxQuantity = 5 }) {
+  const { addToBasket } = BasketContext.useContext();
   const [quantity, setQuantity] = useSelect();
 
   const items = new Array(maxQuantity).fill(null);
 
-  const { name, description, imageUri } = beer;
+  const { id, name, description, imageUri } = beer;
 
   return (
     <Card sx={{ maxWidth: 345 }} component="article">
@@ -41,6 +43,7 @@ export default function Beer({ beer, maxQuantity = 5 }) {
             value={quantity}
             label="Quantité"
             onChange={setQuantity}
+            size="small"
           >
             {items.map((_, index) => {
               const i = index + 1;
@@ -50,7 +53,9 @@ export default function Beer({ beer, maxQuantity = 5 }) {
             })}
           </Select>
         </FormControl>
-        <Button size="small">Ajouter</Button>
+        <Button size="small" onClick={addToBasket(id, quantity)}>
+          Ajouter
+        </Button>
       </CardActions>
     </Card>
   );
