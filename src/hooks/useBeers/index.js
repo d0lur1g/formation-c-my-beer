@@ -3,7 +3,7 @@ import queryString from "query-string";
 
 import cMyBeersFetch from "../../cMyBeersFetch";
 
-export default function useBeers({ categoryId = {} }) {
+export default function useBeers({ categoryId } = {}) {
   const cleanCategoryId =
     categoryId === "" || categoryId === "0" ? undefined : categoryId;
 
