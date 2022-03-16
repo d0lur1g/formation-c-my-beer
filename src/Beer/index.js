@@ -18,7 +18,7 @@ import { BasketContext } from "../contexts";
 
 export default function Beer({ beer, maxQuantity = 5 }) {
   const { addToBasket } = BasketContext.useContext();
-  const [quantity, setQuantity] = useSelect();
+  const [quantity, setQuantity] = useSelect(1);
 
   const items = new Array(maxQuantity).fill(null);
 
