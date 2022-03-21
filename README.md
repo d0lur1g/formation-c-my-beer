@@ -34,6 +34,16 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Testing
+
+- Comment tester ?
+
+- Quelle est notre stratégie ?
+
+- Comment ['render](./testUtils/render/index.js) nos composants ?
+
+- Pourquoi on s'en sert ?
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).

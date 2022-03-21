@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`theme returns a correct settings of values 1`] = `[Function]`;
