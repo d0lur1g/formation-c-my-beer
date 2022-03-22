@@ -10,4 +10,4 @@ All components should be in one of this folder structure. Think about your compo
 
 ## Theming
 
-ATM only one theme is provided, into theme.
+ATM only one theme is provided, into `theme`.
