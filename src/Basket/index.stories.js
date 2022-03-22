@@ -1,4 +1,7 @@
+import { ThemeProvider } from "@mui/material/styles";
 import { QueryClient, QueryClientProvider } from "react-query";
+
+import theme from "../App/theme";
 import Basket from ".";
 import { BasketContext } from "../contexts";
 
@@ -12,7 +15,9 @@ const queryClient = new QueryClient();
 export const Open = () => (
   <QueryClientProvider client={queryClient}>
     <BasketContext.Provider>
-      <Basket open />
+      <ThemeProvider theme={theme}>
+        <Basket open />
+      </ThemeProvider>
     </BasketContext.Provider>
   </QueryClientProvider>
 );
