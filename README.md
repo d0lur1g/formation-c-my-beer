@@ -44,6 +44,16 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 - Pourquoi on s'en sert ?
 
+## Stories in Storybook
+
+- Where ?
+
+http://test.storybook-cmybeer.com
+
+- How ?
+
+We use some default decorators, See [`preview.js`](.storybook/preview.js) for more info
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
