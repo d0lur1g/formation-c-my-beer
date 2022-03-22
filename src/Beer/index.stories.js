@@ -20,22 +20,17 @@ const defaultBeer = {
   price: 1.34,
 };
 
-export const WithoutData = () => (
+const Template = (args) => (
   <QueryClientProvider client={queryClient}>
     <BasketContext.Provider>
       <ThemeProvider theme={theme}>
-        <Beer />
+        <Beer {...args} />
       </ThemeProvider>
     </BasketContext.Provider>
   </QueryClientProvider>
 );
 
-export const WithData = () => (
-  <QueryClientProvider client={queryClient}>
-    <BasketContext.Provider>
-      <ThemeProvider theme={theme}>
-        <Beer beer={defaultBeer} />
-      </ThemeProvider>
-    </BasketContext.Provider>
-  </QueryClientProvider>
-);
+export const WithoutData = Template.bind({});
+
+export const WithData = Template.bind({});
+WithData.args = { beer: defaultBeer };

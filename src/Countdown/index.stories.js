@@ -6,8 +6,25 @@ export default {
   component: Countdown,
 };
 
-export const Default = () => <Countdown />;
+const Template = (args) => <Countdown {...args} />;
 
-export const WithABigStep = () => <Countdown step={50} />;
+export const Default = Template.bind({});
 
-export const StartAt10 = () => <Countdown initialCount={10} />;
+export const WithABigStep = Template.bind({});
+WithABigStep.args = {
+  step: 50,
+};
+
+export const StartAt10 = Template.bind({});
+StartAt10.args = {
+  initialCount: 10,
+};
+
+/**
+ * The real interest about Template and args
+ */
+export const ForTheWin = Template.bind({});
+ForTheWin.args = {
+  ...WithABigStep.args,
+  ...StartAt10.args,
+};

@@ -13,12 +13,14 @@ export default {
 
 const queryClient = new QueryClient();
 
-export const Open = () => (
+const Template = (args) => (
   <QueryClientProvider client={queryClient}>
     <BasketContext.Provider>
       <ThemeProvider theme={theme}>
-        <Basket open />
+        <Basket open {...args} />
       </ThemeProvider>
     </BasketContext.Provider>
   </QueryClientProvider>
 );
+
+export const Default = Template.bind({});
