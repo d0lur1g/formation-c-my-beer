@@ -18,7 +18,7 @@ const basketReducer = (state, { type, payload }) => {
 export default function useBasket() {
   const [basket, dispatch] = React.useReducer(basketReducer, {});
 
-  const addToBasket = (id, count) => () => {
+  const addToBasket = (id, count) => {
     dispatch({ type: "addToBasket", payload: { id, count } });
   };
 

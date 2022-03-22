@@ -4,6 +4,7 @@ import { sbDomain } from "../testUtils";
 export default {
   title: sbDomain("Beer"),
   component: Beer,
+  argTypes: { onClick: { action: "clicked" } },
 };
 
 const defaultBeer = {

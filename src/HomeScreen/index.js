@@ -5,8 +5,10 @@ import { useBeers, useSelect } from "../hooks";
 import Beer from "../Beer";
 import Filter from "../Filter";
 import Screen from "../Screen";
+import { BasketContext } from "../contexts";
 
 export default function HomeScreen() {
+  const { addToBasket } = BasketContext.useContext();
   const [category, setCategory] = useSelect();
   const { isLoading, beers } = useBeers({ categoryId: category });
 
@@ -28,7 +30,7 @@ export default function HomeScreen() {
         <Grid container justifyContent="space-between" spacing={4}>
           {beers.map((beer) => (
             <Grid key={beer.id} item>
-              <Beer beer={beer} />
+              <Beer beer={beer} onAddToBasket={addToBasket} />
             </Grid>
           ))}
         </Grid>

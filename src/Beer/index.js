@@ -1,4 +1,4 @@
-import { number, shape, string } from "prop-types";
+import { func, number, shape, string } from "prop-types";
 
 import {
   Card,
@@ -14,10 +14,12 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useSelect } from "../hooks";
-import { BasketContext } from "../contexts";
 
-export default function Beer({ beer, maxQuantity = 5 }) {
-  const { addToBasket } = BasketContext.useContext();
+export default function Beer({
+  beer,
+  maxQuantity = 5,
+  onAddToBasket = Function.prototype,
+}) {
   const [quantity, setQuantity] = useSelect(1);
 
   const items = new Array(maxQuantity).fill(null);
@@ -55,7 +57,7 @@ export default function Beer({ beer, maxQuantity = 5 }) {
             })}
           </Select>
         </FormControl>
-        <Button size="small" onClick={addToBasket(id, quantity)}>
+        <Button size="small" onClick={() => onAddToBasket(id, quantity)}>
           Ajouter
         </Button>
       </CardActions>
@@ -72,4 +74,5 @@ Beer.propTypes = {
     price: string,
   }),
   maxQuantity: number,
+  onAddToBasket: func,
 };
